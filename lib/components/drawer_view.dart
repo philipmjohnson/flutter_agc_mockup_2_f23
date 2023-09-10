@@ -1,28 +1,30 @@
 import 'package:flutter/material.dart';
 
+import '../components/user_avatar.dart';
+import '../data_model/user_db.dart';
 import '../pages/chapters/chapters_view.dart';
 import '../pages/discussions/discussions_view.dart';
 import '../pages/gardens/gardens_view.dart';
 import '../pages/help/help_view.dart';
 import '../pages/home/home_view.dart';
-import '../pages/members/members_view.dart';
 import '../pages/outcomes/outcomes_view.dart';
 import '../pages/seeds/seeds_view.dart';
+import '../pages/settings/settings_view.dart';
+import '../pages/users/users_view.dart';
 
 class DrawerView extends StatelessWidget {
   const DrawerView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    UserData user = userDB.getUser(currentUserID);
     return Drawer(
       child: ListView(
         children: [
           UserAccountsDrawerHeader(
-            accountName: const Text("Jenna Deane"),
-            accountEmail: const Text("jennacorindeane@gmail.com"),
-            currentAccountPicture: const CircleAvatar(
-              backgroundImage: AssetImage('assets/images/jenna-deane.jpg'),
-            ),
+            accountName: Text(user.name),
+            accountEmail: Text(user.email),
+            currentAccountPicture: UserAvatar(userID: user.id),
             decoration: BoxDecoration(
               color: Theme.of(context).primaryColor,
             ),
@@ -39,6 +41,13 @@ class DrawerView extends StatelessWidget {
             title: const Text('Gardens'),
             onTap: () {
               Navigator.pushReplacementNamed(context, GardensView.routeName);
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.person),
+            title: const Text('Members'),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, UsersView.routeName);
             },
           ),
           ListTile(
@@ -63,13 +72,6 @@ class DrawerView extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: const Icon(Icons.person),
-            title: const Text('Members'),
-            onTap: () {
-              Navigator.pushReplacementNamed(context, MembersView.routeName);
-            },
-          ),
-          ListTile(
             leading: const Icon(Icons.chat),
             title: const Text('Discussions'),
             onTap: () {
@@ -82,6 +84,13 @@ class DrawerView extends StatelessWidget {
             title: const Text('Help'),
             onTap: () {
               Navigator.pushReplacementNamed(context, HelpView.routeName);
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.settings),
+            title: const Text('Settings'),
+            onTap: () {
+              Navigator.pushReplacementNamed(context, SettingsView.routeName);
             },
           ),
           ListTile(

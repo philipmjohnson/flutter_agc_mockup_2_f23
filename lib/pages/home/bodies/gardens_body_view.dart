@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../components/garden_summary_card.dart';
+import '../../../components/garden_summary_view.dart';
+import '../../../data_model/garden_db.dart';
+import '../../../data_model/user_db.dart';
 
 /// Displays a list of Gardens.
 class GardensBodyView extends StatelessWidget {
@@ -14,8 +16,11 @@ class GardensBodyView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.all(10.0),
-        child: ListView(children: const [
-          GardenSummaryCard(),
-        ]));
+        child: ListView(
+            children: gardenDB
+                .getAssociatedGardenIDs(userID: currentUserID)
+                .map((gardenID) => GardenSummaryView(gardenID: gardenID))
+                .toList()
+                .toList()));
   }
 }

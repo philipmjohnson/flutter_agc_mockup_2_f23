@@ -7,10 +7,10 @@ class SigninView extends StatefulWidget {
   static const routeName = '/';
 
   @override
-  State<SigninView> createState() => _SigninViewState();
+  SigninViewState createState() => SigninViewState();
 }
 
-class _SigninViewState extends State<SigninView> {
+class SigninViewState extends State<SigninView> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
@@ -32,7 +32,7 @@ class _SigninViewState extends State<SigninView> {
                 ),
                 Text(
                   "Agile Garden Club",
-                  style: Theme.of(context).textTheme.headlineSmall,
+                  style: Theme.of(context).textTheme.headline5,
                 ),
               ],
             ),
@@ -60,12 +60,15 @@ class _SigninViewState extends State<SigninView> {
               ),
             ),
             const SizedBox(height: 12.0),
-            ElevatedButton(
-                onPressed: () {
-                  // Eventually: pushReplacementNamed
-                  Navigator.pushReplacementNamed(context, '/home');
-                },
-                child: const Text('Sign in')),
+            SizedBox(
+              height: 40,
+              child: ElevatedButton(
+                  onPressed: () {
+                    // Eventually: pushReplacementNamed
+                    Navigator.pushReplacementNamed(context, '/home');
+                  },
+                  child: const Text('Sign in')),
+            ),
             const SizedBox(height: 12.0),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               const Text("Don't have an account? "),

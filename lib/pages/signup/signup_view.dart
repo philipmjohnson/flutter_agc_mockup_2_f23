@@ -7,10 +7,10 @@ class SignupView extends StatefulWidget {
   static const routeName = '/signup';
 
   @override
-  State<SignupView> createState() => _SignupViewState();
+  SignupViewState createState() => SignupViewState();
 }
 
-class _SignupViewState extends State<SignupView> {
+class SignupViewState extends State<SignupView> {
   final _usernameController = TextEditingController();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -30,11 +30,12 @@ class _SignupViewState extends State<SignupView> {
                 const SizedBox(height: 16.0),
                 Text(
                   "Sign Up",
-                  style: Theme.of(context).textTheme.headlineSmall,
+                  style: Theme.of(context).textTheme.headline5,
                 ),
                 const SizedBox(height: 16.0),
                 const Text(
-                    "Your name and email is shared only with members of your AGC Chapter and AGC Administrators."),
+                  "Your name and email is shared only with members of your AGC Chapter and AGC Administrators."
+                ),
               ],
             ),
             const SizedBox(height: 20.0),
