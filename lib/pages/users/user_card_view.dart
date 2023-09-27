@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../components/user_avatar.dart';
 import '../../data_model/chapter_db.dart';
 import '../../data_model/garden_db.dart';
@@ -25,29 +26,29 @@ class UserCardView extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Card(
-        elevation: 8,
+          elevation: 8,
           child: Column(
-        children: [
-          ListTile(
-              leading: UserAvatar(userID: userID),
-              trailing: const Icon(Icons.more_vert),
-              title: Text(data.username,
-                  style: Theme.of(context).textTheme.headline6)),
-          Padding(
-            padding: const EdgeInsets.only(left: 15.0),
-            child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text('Garden(s): ${gardenNames.join(", ")}')),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(left: 15.0),
-            child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text('Chapter(s): ${chapterNames.join(", ")}')),
-          ),
-          const SizedBox(height: 10)
-        ],
-      )),
+            children: [
+              ListTile(
+                  leading: UserAvatar(userID: userID),
+                  trailing: const Icon(Icons.more_vert),
+                  title: Text(data.username,
+                      style: Theme.of(context).textTheme.titleLarge)),
+              Padding(
+                padding: const EdgeInsets.only(left: 15.0),
+                child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text('Garden(s): ${gardenNames.join(", ")}')),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15.0),
+                child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text('Chapter(s): ${chapterNames.join(", ")}')),
+              ),
+              const SizedBox(height: 10)
+            ],
+          )),
     );
   }
 }

@@ -32,7 +32,7 @@ class SigninViewState extends State<SigninView> {
                 ),
                 Text(
                   "Agile Garden Club",
-                  style: Theme.of(context).textTheme.headline5,
+                  style: Theme.of(context).textTheme.headlineSmall,
                 ),
               ],
             ),
