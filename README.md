@@ -15,7 +15,7 @@ flutter run
 On my platform, that brings up the iOS simulator and the following:
 
 ```
- flutter run
+$ flutter run
 Launching lib/main.dart on iPhone 13 Pro in debug mode...
 Updating project for Xcode compatibility.
 Upgrading project.pbxproj
