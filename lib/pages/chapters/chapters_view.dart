@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../components/drawer_view.dart';
 import '../../components/help_button.dart';
 import '../../data_model/chapter_db.dart';
@@ -43,7 +44,6 @@ class ChaptersView extends StatelessWidget {
   final String title = 'Chapters';
   static const routeName = '/chapters';
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,10 +53,10 @@ class ChaptersView extends StatelessWidget {
         actions: const [HelpButton(routeName: ChaptersView.routeName)],
       ),
       body: ListView(
-          children: [
-            ...chapterDB.getAssociatedChapterIDs(currentUserID).map((chapterID) => ChapterCardView(chapterID: chapterID))
-          ]
-      ),
+          children: chapterDB
+              .getAssociatedChapterIDs(currentUserID)
+              .map((chapterID) => ChapterCardView(chapterID: chapterID))
+              .toList()),
       bottomNavigationBar: BottomNavigationBar(
         // type: BottomNavigationBarType.fixed, // needed when more than 3 items
         items: const [
